@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>湖南讯息跳动网络科技有限公司 | 鲸鱼AI助手</title>
+    <meta name="description" content="鲸鱼AI助手专注于将 AI 生成内容直接转化为可用文档，支持复杂公式与流程图，确保安全合规、多端通用、交付专业。">
     <link rel="icon" href="https://7365-seekservice-9gkeeztlfcb2a6d4-1301441002.tcb.qcloud.la/md-logo-main.png?sign=bd0f9a0c6b137f2cedee0d11024051b0&t=1770450451">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            color-scheme: light;
-            --primary: #2f6bff;
-            --primary-dark: #1f4ed8;
-            --secondary: #0f172a;
-            --text: #1f2937;
-            --muted: #6b7280;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --border: #e2e8f0;
-            --accent: #f97316;
+            color-scheme: dark;
+            --primary: #766ee9;
+            --primary-dark: #5b55d6;
+            --secondary: #f8fafc;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --bg: #0b1020;
+            --card: #141a2f;
+            --border: rgba(148, 163, 184, 0.2);
+            --accent: #fbbf24;
         }
 
         * {
@@ -54,7 +55,7 @@
             gap: 0.5rem;
             padding: 0.3rem 0.85rem;
             border-radius: 999px;
-            background: rgba(47, 107, 255, 0.1);
+            background: rgba(118, 110, 233, 0.16);
             color: var(--primary);
             font-weight: 600;
             font-size: 0.9rem;
@@ -64,7 +65,7 @@
             position: sticky;
             top: 0;
             z-index: 20;
-            background: rgba(248, 250, 252, 0.92);
+            background: rgba(11, 16, 32, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
@@ -113,10 +114,10 @@
             padding: 0.75rem 1.4rem;
             border-radius: 999px;
             background: var(--primary);
-            color: white;
+            color: #0b1020;
             font-weight: 600;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 12px 24px rgba(47, 107, 255, 0.25);
+            box-shadow: 0 12px 24px rgba(118, 110, 233, 0.35);
         }
 
         .cta:hover {
@@ -159,13 +160,14 @@
             border-radius: 999px;
             color: var(--secondary);
             font-weight: 600;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .hero-card {
             background: var(--card);
             border-radius: 24px;
             padding: 2rem;
-            box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 24px 64px rgba(7, 10, 20, 0.6);
             border: 1px solid var(--border);
         }
 
@@ -214,12 +216,18 @@
             gap: 1.5rem;
         }
 
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
         .card {
             background: var(--card);
             border-radius: 16px;
             padding: 1.6rem;
             border: 1px solid var(--border);
-            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 16px 40px rgba(7, 10, 20, 0.45);
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -229,7 +237,8 @@
             border-radius: 12px;
             width: 100%;
             height: 180px;
-            object-fit: cover;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .card h3 {
@@ -283,9 +292,12 @@
         }
 
         .qr-card img {
-            width: 160px;
-            height: 160px;
+            width: 170px;
+            height: 170px;
             margin: 0 auto 1rem;
+            border-radius: 12px;
+            background: #ffffff;
+            padding: 0.4rem;
         }
 
         .plugin-grid {
@@ -302,11 +314,20 @@
             background: var(--card);
             border-radius: 16px;
             border: 1px solid var(--border);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .plugin-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(118, 110, 233, 0.6);
         }
 
         .plugin-card img {
             width: 52px;
             height: 52px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.4rem;
         }
 
         .social-links {
@@ -318,14 +339,14 @@
         .social-links a {
             padding: 0.7rem 1.2rem;
             border-radius: 999px;
-            background: white;
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border);
             font-weight: 600;
             color: var(--secondary);
         }
 
         footer {
-            background: #0f172a;
+            background: #0a0f1f;
             color: #e2e8f0;
             padding: 3rem 0;
             margin-top: 4rem;
@@ -561,7 +582,7 @@
                 <h2>我们的优势</h2>
                 <p>坚持专业、安全、稳定的交付体验。</p>
             </div>
-            <div class="grid-3">
+            <div class="grid-4">
                 <div class="card">
                     <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-02/lowcode-2424003" alt="数据安全">
                     <h3>数据安全</h3>
@@ -597,6 +618,8 @@
                     <div><span>公司名称：</span>湖南讯息跳动网络科技有限公司</div>
                     <div><span>愿景：</span>为主流 AI 工具提供最专业的交付与协作方案</div>
                     <div><span>帮助中心：</span><a href="https://www.aiwhaler.com/help/" target="_blank" rel="noreferrer">https://www.aiwhaler.com/help/</a></div>
+                    <div><span>用户协议：</span><a href="user_agreement.html">user_agreement.html</a></div>
+                    <div><span>隐私政策：</span><a href="privacy_policy.html">privacy_policy.html</a></div>
                     <div class="social-links">
                         <a href="https://www.zhihu.com/people/33-44-73-12-10" target="_blank" rel="noreferrer">知乎</a>
                         <a href="https://www.xiaohongshu.com/user/profile/64b5fb93000000000b014f78?xsec_token=YBs9EIHtVuIMv2UWOAIHM7QhzUi7QojCZ7lUKYCObpTHU=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0tGMzVLOTw2NzUyOTgwNjY0OTc5R0g7&apptime=1759463311&share_id=caa6c636cc1f49269fd532deb81e2d7a" target="_blank" rel="noreferrer">小红书</a>
@@ -624,8 +647,8 @@
                 <div class="footer-links">
                     <a href="https://www.aiwhaler.com/" target="_blank" rel="noreferrer">在线使用</a>
                     <a href="https://www.aiwhaler.com/help/" target="_blank" rel="noreferrer">帮助中心</a>
-                    <a href="https://www.aiwhaler.com/ua/" target="_blank" rel="noreferrer">用户协议</a>
-                    <a href="https://www.aiwhaler.com/pp/" target="_blank" rel="noreferrer">隐私政策</a>
+                    <a href="user_agreement.html">用户协议</a>
+                    <a href="privacy_policy.html">隐私政策</a>
                 </div>
             </div>
             <div>
