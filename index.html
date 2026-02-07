@@ -3,246 +3,645 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>湖南讯息跳动网络科技有限公司</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>湖南讯息跳动网络科技有限公司 | 鲸鱼AI助手</title>
+    <link rel="icon" href="https://7365-seekservice-9gkeeztlfcb2a6d4-1301441002.tcb.qcloud.la/md-logo-main.png?sign=bd0f9a0c6b137f2cedee0d11024051b0&t=1770450451">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            color-scheme: light;
+            --primary: #2f6bff;
+            --primary-dark: #1f4ed8;
+            --secondary: #0f172a;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --accent: #f97316;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
-        /* 导航样式 */
-        nav {
-            background: #2c3e50;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        body {
+            font-family: "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
         }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: white;
+        a {
+            color: inherit;
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
         }
 
-        nav a:hover {
-            color: #3498db;
-            background: rgba(255,255,255,0.1);
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        /* 主要内容区域 */
         .container {
-            max-width: 1200px;
-            margin: 80px auto 0;
-            padding: 2rem;
+            width: min(1200px, 92%);
+            margin: 0 auto;
         }
 
-        /* 首页Banner */
-        #home {
-            text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            margin-bottom: 3rem;
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(47, 107, 255, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        /* 产品展示区 */
-        .product-section {
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(248, 250, 252, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand img {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+        }
+
+        .brand-title {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: 999px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 24px rgba(47, 107, 255, 0.25);
+        }
+
+        .cta:hover {
+            transform: translateY(-1px);
+            background: var(--primary-dark);
+        }
+
+        .hero {
+            padding: 4.5rem 0 3rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 3rem;
             align-items: center;
-            margin: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .hero-actions {
+            display: flex;
             flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .ghost {
+            border: 1px solid var(--border);
+            padding: 0.7rem 1.4rem;
+            border-radius: 999px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .hero-card {
+            background: var(--card);
+            border-radius: 24px;
             padding: 2rem;
-            background: #fff;
+            box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .hero-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-card ul {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .hero-card li {
+            list-style: none;
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+            color: var(--text);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 2.2vw + 1rem, 2.6rem);
+            color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.6rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .card img {
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .product-image {
-            flex: 1;
-            min-width: 400px;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .product-image:hover {
-            transform: scale(1.02);
-        }
-
-        .product-image img {
             width: 100%;
-            height: 100%;
+            height: 180px;
             object-fit: cover;
         }
 
-        .product-info {
-            flex: 1;
-            min-width: 300px;
+        .card h3 {
+            color: var(--secondary);
         }
 
-        h1 {
-            color: #2c3e50;
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            color: #3498db;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-        }
-
-        p {
-            line-height: 1.8;
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        /* 功能列表 */
-        .features {
+        .info-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 0.9rem;
+            margin-top: 1.2rem;
+            color: var(--muted);
         }
 
-        .feature-card {
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            transition: transform 0.3s;
+        .info-list span {
+            font-weight: 600;
+            color: var(--secondary);
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
+        .compatibility {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
         }
 
-        /* 备案信息 */
-        footer {
-            background: #2c3e50;
-            color: white;
+        .compat-item {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 1.4rem;
+            border: 1px solid var(--border);
             text-align: center;
-            padding: 2rem;
-            margin-top: 5rem;
         }
 
-        .icp-info {
+        .compat-item i {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .qr-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 1.4rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .qr-card img {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1rem;
+        }
+
+        .plugin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .plugin-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem;
+            background: var(--card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .plugin-card img {
+            width: 52px;
+            height: 52px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            padding: 0.7rem 1.2rem;
+            border-radius: 999px;
+            background: white;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        footer {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        footer a {
+            color: #e2e8f0;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(226, 232, 240, 0.2);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
             font-size: 0.9rem;
-            margin-top: 1rem;
+            color: #94a3b8;
         }
 
-        .icp-info a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        /* 响应式设计 */
         @media (max-width: 768px) {
-            .product-section {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-card {
+                padding: 1.6rem;
+            }
+
+            .hero-actions {
                 flex-direction: column;
-                padding: 1rem;
+                align-items: stretch;
             }
-            
-            .product-image {
-                min-width: 100%;
-                height: 300px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
+
+            .cta,
+            .ghost {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
-            <li><a href="#product"><i class="fas fa-cube"></i> 产品</a></li>
-            <li><a href="#about"><i class="fas fa-users"></i> 关于我们</a></li>
-            <li><a href="#contact"><i class="fas fa-phone"></i> 联系我们</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <!-- 首页Banner -->
-        <section id="home">
-            <h1>湖南讯息跳动网络科技有限公司</h1>
-            <p class="tagline">一站式AI解决方案，提升您的日常效率</p>
-            <div class="features">
-                <div class="feature-card">
-                    <h3><i class="fas fa-brain"></i> 核心技术</h3>
-                    <p>基于深度学习的自然语言处理框架，支持多模态数据处理</p>
-                </div>
-                <div class="feature-card">
-                    <h3><i class="fas fa-shield-alt"></i> 安全可靠</h3>
-                    <p>多重加密数据库，保障数据安全</p>
-                </div>
+<header>
+    <div class="container nav">
+        <div class="brand">
+            <img src="https://7365-seekservice-9gkeeztlfcb2a6d4-1301441002.tcb.qcloud.la/md-logo-main.png?sign=bd0f9a0c6b137f2cedee0d11024051b0&t=1770450451" alt="湖南讯息跳动网络科技有限公司">
+            <div>
+                <div class="brand-title">湖南讯息跳动网络科技有限公司</div>
+                <small style="color: var(--muted);">鲸鱼AI助手</small>
             </div>
-        </section>
-
-        <!-- 产品展示 -->
-        <section id="product" class="product-section">
-            <div class="product-image">
-                <img src="https://7365-seekservice-9gkeeztlfcb2a6d4-1301441002.tcb.qcloud.la/dpshareicon.jpg"/>
-            </div>
-            
-            <div class="product-info">
-                <h2>鲸鱼AI助手</h2>
-                <p>鲸鱼AI助手是一个高效的一站式AI解决方案</p>
-                <ul class="feature-list">
-                    <li><i class="fas"></i>鲸鱼生活助手：随时随地陪你聊天，为你解答疑惑。</li>
-                    <li><i class="fas"></i>鲸鱼高考志愿助手：结合海量数据，为你推荐适合的学校，分析录取成功率和就业前景。</li>
-                    <li><i class="fas"></i>鲸鱼办公助手：课件、策划、合同、报表、论文、问卷一站式搞定，支持一键导出为Word Excel Pdf等多种格式的文件。</li>
-                    <li><i class="fas"></i>鲸鱼考题助手：一键生成各年级各学科考题和练习题，支持一键导出为Word Excel Pdf等多种格式的文件。</li>
-                </ul>
-                <!-- <button style="margin-top: 1.5rem; padding: 0.8rem 2rem; background: #868BFF; color: white; border: none; border-radius: 5px; cursor: pointer;"><a href="https://a.app.qq.com/o/simple.jsp?pkgname=com.whaler.app" style="color: #fff;">立即体验</a></button> -->
-            </div>
-        </section>
-
-        <!-- 联系方式 -->
-        <section id="contact" style="margin-top: 5rem;">
-            <h2>联系我们</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> 地址：长沙市雨花区人工智能产业园A栋302室</p>
-                <p><i class="fas fa-phone"></i> 电话：021-6688-9109</p>
-                <p><i class="fas fa-envelope"></i> 邮箱：aiwhaler@yeah.net</p>
-                <p><i class="fas fa-clock"></i> 工作时间：周一至周五 9:00-18:00</p>
-            </div>
-        </section>
-    </div>
-
-    <!-- 备案信息 -->
-    <footer>
-        <div class="icp-info">
-            <!-- <p>湘ICP备2024045717号-1 | 版权所有 © 2024 湖南讯息跳动网络科技有限公司</p> -->
-            <p><a href="http://beian.miit.gov.cn" target="_blank">工业和信息化部备案管理系统网站</a></p>
-            <p><a href="privacy_policy.html">隐私协议</a> | <a href="user_agreement.html">用户协议</a></p>
         </div>
-    </footer>
+        <nav class="nav-links">
+            <a href="#vision">愿景</a>
+            <a href="#product">产品</a>
+            <a href="#advantages">优势</a>
+            <a href="#plugins">插件</a>
+            <a href="#contact">联系</a>
+        </nav>
+        <a class="cta" href="https://www.aiwhaler.com/" target="_blank" rel="noreferrer">
+            立即体验
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="vision">
+        <div class="container hero-grid">
+            <div>
+                <span class="pill"><i class="fa-solid fa-lightbulb"></i> 公司愿景</span>
+                <h1>为主流 AI 工具提供最专业的交付与协作方案</h1>
+                <p>鲸鱼AI助手专注于将 AI 生成内容直接转化为可用文档，支持复杂公式与流程图，确保安全合规、多端通用、交付专业。</p>
+                <div class="hero-actions">
+                    <a class="cta" href="https://www.aiwhaler.com/" target="_blank" rel="noreferrer">在线体验鲸鱼AI助手</a>
+                    <a class="ghost" href="https://www.aiwhaler.com/help/" target="_blank" rel="noreferrer">访问帮助中心</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>鲸鱼AI助手能做什么？</h3>
+                <p>将主流 AI 的输出快速转化为 Word / PDF / Excel 文档，并保持公式与流程图的完整呈现。</p>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check" style="color: var(--primary);"></i> 多端一致体验：网页端、App、小程序、浏览器插件</li>
+                    <li><i class="fa-solid fa-circle-check" style="color: var(--primary);"></i> 专业团队全程支持交付流程</li>
+                    <li><i class="fa-solid fa-circle-check" style="color: var(--primary);"></i> 腾讯云数据安全体系保障</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="product">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心产品：鲸鱼AI助手</h2>
+                <p>面向企业与专业用户的 AI 文档交付平台，为复杂内容提供稳定输出。</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2025-12/lowcode-2403894" alt="鲸鱼AI助手图标">
+                    <h3>高效交付</h3>
+                    <p>一键导出 Word / PDF / Excel 文档，复杂公式与流程图保持原样。</p>
+                </div>
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2025-12/lowcode-2403893" alt="鲸鱼AI助手文字标识">
+                    <h3>专业协作</h3>
+                    <p>覆盖多场景交付流程，专业团队支持从生产到落地。</p>
+                </div>
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2025-12/lowcode-2403878" alt="鲸鱼AI助手白色文字标识">
+                    <h3>安全合规</h3>
+                    <p>全面对接腾讯云数据安全系统，保障信息隐私与合规。</p>
+                </div>
+            </div>
+            <div class="info-list">
+                <div><span>产品简介：</span>鲸鱼AI助手专注于将主流 AI 生成内容转化为可直接使用的 Word / PDF / Excel 文档，支持复杂公式与流程图。</div>
+                <div><span>数据安全：</span>多端通用，专业团队全程支持，为您的 AI 工具提供最专业的交付方案。</div>
+                <div><span>在线地址：</span><a href="https://www.aiwhaler.com/" target="_blank" rel="noreferrer">https://www.aiwhaler.com/</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="compatibility">
+        <div class="container">
+            <div class="section-title">
+                <h2>全场景兼容</h2>
+                <p>覆盖网页端、App、小程序与浏览器插件，满足各类使用需求。</p>
+            </div>
+            <div class="compatibility">
+                <div class="compat-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>网页端</h3>
+                    <p><a href="https://www.aiwhaler.com/" target="_blank" rel="noreferrer">在线访问</a></p>
+                </div>
+                <div class="compat-item">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>App 端</h3>
+                    <p>扫码获取 App</p>
+                </div>
+                <div class="compat-item">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <h3>小程序端</h3>
+                    <p>微信扫码使用</p>
+                </div>
+                <div class="compat-item">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <h3>浏览器插件</h3>
+                    <p>DeepSeek / 豆包 / Gemini / ChatGPT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="downloads">
+        <div class="container">
+            <div class="section-title">
+                <h2>下载入口</h2>
+                <p>扫描二维码快速体验鲸鱼AI助手。</p>
+            </div>
+            <div class="qr-grid">
+                <div class="qr-card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-01/lowcode-2421725" alt="鲸鱼AI助手App下载二维码">
+                    <h3>App 端下载</h3>
+                </div>
+                <div class="qr-card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2025-12/lowcode-2403874" alt="鲸鱼AI助手小程序二维码">
+                    <h3>小程序二维码</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="plugins">
+        <div class="container">
+            <div class="section-title">
+                <h2>浏览器插件矩阵</h2>
+                <p>支持主流 AI 平台，覆盖更多工作场景。</p>
+            </div>
+            <div class="plugin-grid">
+                <a class="plugin-card" href="https://deepseek.aiwhaler.com/" target="_blank" rel="noreferrer">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2025-12/lowcode-2411744" alt="DeepSeek 插件">
+                    <div>
+                        <h3>DeepSeek 插件</h3>
+                        <p>立即体验</p>
+                    </div>
+                </a>
+                <a class="plugin-card" href="https://doubao.aiwhaler.com/" target="_blank" rel="noreferrer">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2025-12/lowcode-2411736" alt="豆包 插件">
+                    <div>
+                        <h3>豆包 插件</h3>
+                        <p>立即体验</p>
+                    </div>
+                </a>
+                <a class="plugin-card" href="https://m.aiwhaler.com/gemini/" target="_blank" rel="noreferrer">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-01/lowcode-2421671" alt="Gemini 插件">
+                    <div>
+                        <h3>Gemini 插件</h3>
+                        <p>立即体验</p>
+                    </div>
+                </a>
+                <a class="plugin-card" href="https://m.aiwhaler.com/chatgpt/" target="_blank" rel="noreferrer">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-01/lowcode-2421670" alt="ChatGPT 插件">
+                    <div>
+                        <h3>ChatGPT 插件</h3>
+                        <p>立即体验</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>我们的优势</h2>
+                <p>坚持专业、安全、稳定的交付体验。</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-02/lowcode-2424003" alt="数据安全">
+                    <h3>数据安全</h3>
+                    <p>全面对接腾讯云数据安全系统，保障信息隐私和数据安全。</p>
+                </div>
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-02/lowcode-2424006" alt="全程支持">
+                    <h3>全程支持</h3>
+                    <p>售后客服、技术客服全程在线支持，解决任何疑难问题。</p>
+                </div>
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-02/lowcode-2424004" alt="持续升级">
+                    <h3>持续升级</h3>
+                    <p>专业研发团队持续优化产品功能，不断提升复杂公式兼容性。</p>
+                </div>
+                <div class="card">
+                    <img src="https://seekservice-9gkeeztlfcb2a6d4-1301441002.tcloudbaseapp.com/resources/2026-02/lowcode-2424005" alt="多端通用">
+                    <h3>多端通用</h3>
+                    <p>App 小程序 在线网页 浏览器插件通用，覆盖不同场景需求。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>我们随时准备为您提供专业支持。</p>
+            </div>
+            <div class="card">
+                <div class="info-list">
+                    <div><span>公司名称：</span>湖南讯息跳动网络科技有限公司</div>
+                    <div><span>愿景：</span>为主流 AI 工具提供最专业的交付与协作方案</div>
+                    <div><span>帮助中心：</span><a href="https://www.aiwhaler.com/help/" target="_blank" rel="noreferrer">https://www.aiwhaler.com/help/</a></div>
+                    <div class="social-links">
+                        <a href="https://www.zhihu.com/people/33-44-73-12-10" target="_blank" rel="noreferrer">知乎</a>
+                        <a href="https://www.xiaohongshu.com/user/profile/64b5fb93000000000b014f78?xsec_token=YBs9EIHtVuIMv2UWOAIHM7QhzUi7QojCZ7lUKYCObpTHU=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0tGMzVLOTw2NzUyOTgwNjY0OTc5R0g7&apptime=1759463311&share_id=caa6c636cc1f49269fd532deb81e2d7a" target="_blank" rel="noreferrer">小红书</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <img src="https://7365-seekservice-9gkeeztlfcb2a6d4-1301441002.tcb.qcloud.la/md-logo-main.png?sign=bd0f9a0c6b137f2cedee0d11024051b0&t=1770450451" alt="鲸鱼AI助手 Logo">
+                    <div>
+                        <div style="font-weight: 700;">鲸鱼AI助手</div>
+                        <small>专业 AI 交付方案</small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4>快速链接</h4>
+                <div class="footer-links">
+                    <a href="https://www.aiwhaler.com/" target="_blank" rel="noreferrer">在线使用</a>
+                    <a href="https://www.aiwhaler.com/help/" target="_blank" rel="noreferrer">帮助中心</a>
+                    <a href="https://www.aiwhaler.com/ua/" target="_blank" rel="noreferrer">用户协议</a>
+                    <a href="https://www.aiwhaler.com/pp/" target="_blank" rel="noreferrer">隐私政策</a>
+                </div>
+            </div>
+            <div>
+                <h4>浏览器插件</h4>
+                <div class="footer-links">
+                    <a href="https://deepseek.aiwhaler.com/" target="_blank" rel="noreferrer">DeepSeek 插件</a>
+                    <a href="https://doubao.aiwhaler.com/" target="_blank" rel="noreferrer">豆包 插件</a>
+                    <a href="https://m.aiwhaler.com/gemini/" target="_blank" rel="noreferrer">Gemini 插件</a>
+                    <a href="https://m.aiwhaler.com/chatgpt/" target="_blank" rel="noreferrer">ChatGPT 插件</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2018 - 2025 鲸鱼AI助手版权所有 湘ICP备2024045717号-5
+        </div>
+    </div>
+</footer>
 </body>
 </html>
-    
